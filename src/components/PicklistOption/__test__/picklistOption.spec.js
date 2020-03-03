@@ -51,18 +51,6 @@ describe('<PicklistOption />', () => {
         mount(<PicklistOption name="option1" />);
         expect(optionRegisterFn).toHaveBeenCalled();
     });
-    it('should unregister when selected', () => {
-        const component = mount(<PicklistOption label="option 1" name="option1" />);
-        component.setProps({ currentValueName: 'option1' });
-        expect(optionUnregisterFn).toHaveBeenCalled();
-    });
-    it('should register when deselected', () => {
-        const component = mount(
-            <PicklistOption label="Option 1" name="option1" currentValueName="option1" />,
-        );
-        component.setProps({ currentValueName: undefined });
-        expect(optionRegisterFn).toHaveBeenCalled();
-    });
     it('should unregister when unmount', () => {
         const component = mount(<PicklistOption label="option 1" name="option1" />);
         component.unmount();
